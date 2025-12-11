@@ -93,7 +93,7 @@ Nous avons observé un décalage temporel nul pour le canal 1 par rapport au can
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.7\textwidth]{oscilloscope-resistor.jpg}
+\includegraphics[width=0.7\textwidth,angle=180,origin=c]{oscilloscope-resistor.jpg}
 \caption{Sortie de l'oscilloscope montrant un déphasage nul pour le circuit avec résistance}
 \label{fig:oscilloscope-resistor}
 \end{figure}
@@ -128,7 +128,7 @@ en correspondance avec les attentes théoriques pour une inductance idéale à c
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.7\textwidth]{oscilloscope-inductor.jpg}
+\includegraphics[width=0.7\textwidth,angle=180,origin=c]{oscilloscope-inductor.jpg}
 \caption{Sortie de l'oscilloscope montrant un déphasage positif pour le circuit avec inductance}
 \label{fig:oscilloscope-inductor}
 \end{figure}
@@ -189,7 +189,7 @@ Nous observons un déphasage négatif pour le condensateur. Expérimentalement, 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.7\textwidth]{oscilloscope-capacitor.jpg}
+\includegraphics[width=0.7\textwidth,angle=180,origin=c]{oscilloscope-capacitor.jpg}
 \caption{Sortie de l'oscilloscope montrant un déphasage négatif pour le circuit avec condensateur}
 \label{fig:oscilloscope-capacitor}
 \end{figure}
@@ -257,6 +257,13 @@ De l'oscilloscope nous lisons les tensions efficaces $U$ de \SI{21}{V} de la sou
 Nous observons un décalage temporel positif du canal~1 par rapport au canal~2 de $\Delta t=\SI{2.25}{ms}$, d'où nous déduisons un déphasage
 \[\Delta\phi = \frac{2\pi\,\Delta t}{T} \approx 0.45\,\pi.\]
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth,angle=180,origin=c]{oscilloscope-RLC.jpg}
+\caption{Sortie de l'oscilloscope pour le circuit RLC en série}
+\label{fig:oscilloscope-rlc}
+\end{figure}
+
 \paragraph{Modélisation}
 Si nous modélisons $U(t)=U_{m}\cos(\omega t)$, puisque $I_{m}=\dfrac{U_{Rm}}{R}$, donc
 \[I(t)=I_{m}\cos(\omega t-\tfrac{\pi}{2})=I_{m}\sin(\omega t)=\frac{U_{Rm}}{R}\sin(\omega t).\]
@@ -266,13 +273,6 @@ De $U_{R}$, nous utilisons la loi d'Ohm $I=\dfrac{U_{R}}{R}$ pour calculer le co
 
 \paragraph{Remarques}
 Avec un déphasage $\Delta\phi\approx 0.45\,\pi$, ce circuit se comporte de manière similaire à un circuit principalement inductif, malgré la présence d'une résistance et d'un condensateur.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.7\textwidth]{oscilloscope-RLC.jpg}
-\caption{Sortie de l'oscilloscope pour le circuit RLC en série}
-\label{fig:oscilloscope-rlc}
-\end{figure}
 
 \section*{Conclusion}
 

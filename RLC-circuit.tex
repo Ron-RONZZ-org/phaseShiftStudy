@@ -93,7 +93,7 @@ We observed zero temporal shift for channel 1 with regard to channel 2, from whi
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.7\textwidth]{oscilloscope-resistor.jpg}
+\includegraphics[width=0.7	extwidth,angle=180,origin=c]{oscilloscope-resistor.jpg}
 \caption{Oscilloscope output showing zero phase shift for the resistor circuit}
 \label{fig:oscilloscope-resistor}
 \end{figure}
@@ -128,7 +128,7 @@ in correspondence with theoretical expectations for an ideal inductor at that fr
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.7\textwidth]{oscilloscope-inductor.jpg}
+\includegraphics[width=0.7	extwidth,angle=180,origin=c]{oscilloscope-inductor.jpg}
 \caption{Oscilloscope output showing positive phase shift for the inductor circuit}
 \label{fig:oscilloscope-inductor}
 \end{figure}
@@ -189,7 +189,7 @@ We observe a negative phase shift for the capacitor. Experimentally, a temporal 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.7\textwidth]{oscilloscope-capacitor.jpg}
+\includegraphics[width=0.7	extwidth,angle=180,origin=c]{oscilloscope-capacitor.jpg}
 \caption{Oscilloscope output showing negative phase shift for the capacitor circuit}
 \label{fig:oscilloscope-capacitor}
 \end{figure}
@@ -257,6 +257,14 @@ From the oscilloscope we read effective voltages $U$ of \SI{21}{V} from the volt
 We observe a positive temporal shift of channel~1 with regard to channel~2 of $\Delta t=\SI{2.25}{ms}$, from which we deduce a phase shift
 \[\Delta\phi = \frac{2\pi\,\Delta t}{T} \approx 0.45\,\pi.\]
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7	extwidth,angle=180,origin=c]{oscilloscope-RLC.jpg}
+\caption{Oscilloscope output for the series RLC circuit}
+\label{fig:oscilloscope-rlc}
+\end{figure}
+
+
 \paragraph{Modeling}
 If we model $U(t)=U_{m}\cos(\omega t)$, since $I_{m}=\dfrac{U_{Rm}}{R}$, so
 \[I(t)=I_{m}\cos(\omega t-\tfrac{\pi}{2})=I_{m}\sin(\omega t)=\frac{U_{Rm}}{R}\sin(\omega t).\]
@@ -266,13 +274,6 @@ From $U_{R}$, we use Ohm's law $I=\dfrac{U_{R}}{R}$ to calculate the effective c
 
 \paragraph{Remarks}
 With a phase shift $\Delta\phi\approx 0.45\,\pi$, this circuit behaves similarly to a predominantly inductive circuit, despite the presence of a resistor and a capacitor.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.7\textwidth]{oscilloscope-RLC.jpg}
-\caption{Oscilloscope output for the series RLC circuit}
-\label{fig:oscilloscope-rlc}
-\end{figure}
 
 \section*{Conclusion}
 
