@@ -1,0 +1,282 @@
+\documentclass[a4paper,11pt]{scrreprt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{circuitikz}
+\usetikzlibrary{babel}
+
+\title{Étude du comportement expérimental d'un circuit à courant alternatif avec résistance, condensateur et inductance linéaires}
+\subtitle{Travaux pratiques génie électricité GIM 1 R1.04}
+\author{Rong ZHOU \and Théo CUNY}
+\newcommand{\univaddress}{IUT Hubert Curien, Université de Lorraine, 7 Rue Fusillés Résistance, 88000 Épinal}
+\date{\today}
+\newcommand{\contact}{ron@ronzz.org}
+
+\begin{document}
+\maketitle
+\begin{center}
+\univaddress\\
+\contact
+\end{center}
+
+\section*{Introduction}
+Dans cette expérience, nous visons à étudier le comportement d'un circuit à courant alternatif linéaire avec des composants comprenant des résistances, des condensateurs et des inductances.
+
+\section{Partie 1 : étude du déphasage causé par un seul composant électrique}
+
+Dans cette partie, nous connectons notre composant d'intérêt à une source de tension sinusoïdale d'une fréquence de \SI{100}{Hz} avec une résistance auxiliaire, comme montré dans la Figure~\ref{fig:1}.
+
+\begin{figure}[h]
+\centering
+\begin{circuitikz}
+	\draw
+	(0,0) to[sV, v=$100\,\mathrm{Hz}$] (0,3)
+				to[R=$10\,\Omega$] (3,3)
+				to[european resistor, l_=Component] (3,0)
+				-- (0,0);
+\end{circuitikz}
+\caption{Connexion du composant avec une source de tension sinusoïdale et une résistance auxiliaire}
+\label{fig:1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{circuitikz}
+	\draw
+	(0,0) to[sV, v=$100\,\mathrm{Hz}$] (0,3)
+				to[R=$10\,\Omega$] (3,3)
+				to[european resistor, l_=Component] (3,0)
+				-- (0,0);
+
+	% Oscilloscope connections
+	\draw[-latex] (0,3) -- ++(0,0.5) node[above] {Ch1};
+	\draw[-latex] (3,3) -- ++(0,0.5) node[above] {Ch2};
+\end{circuitikz}
+\caption{Connexion de l'oscilloscope : Canal 1 à la source de tension, Canal 2 à la résistance auxiliaire}
+\label{fig:2}
+\end{figure}
+
+Puisqu'une résistance ne provoque aucun déphasage, le déphasage entre la tension $U$ et le courant $I$ du circuit est égal au déphasage entre la tension source $U$ et la tension aux bornes de la résistance $U_{R}$.
+
+L'oscilloscope mesure le décalage temporel $\Delta t$, à partir duquel nous pouvons calculer mathématiquement le déphasage $\Delta\phi$ avec la formule
+\[\Delta\phi = \frac{2\pi\,\Delta t}{T},\]
+où $T$ est la période de la source de tension alternative.
+
+\subsection{1.1 : Étude du déphasage causé par une seule résistance}
+
+Dans cette partie, nous utilisons une résistance auxiliaire de \SI{10}{\Omega} et la résistance testée de \SI{100}{\Omega} (Figure~\ref{fig:3}).
+
+\begin{figure}[h]
+\centering
+\begin{circuitikz}
+	\draw
+	(0,0) to[sV, l=$100\,\mathrm{Hz}$] (0,3)
+				to[R=$10\,\Omega$] (3,3)
+				to[R=$100\,\Omega$] (3,0)
+				-- (0,0);
+
+% Oscilloscope connections
+\draw[-latex] (0,3) -- ++(0,0.5) node[above] {Ch1};
+\draw[-latex] (3,3) -- ++(0,0.5) node[above] {Ch2};
+
+\end{circuitikz}
+\caption{Circuit avec source sinusoïdale, résistance auxiliaire et résistance de 100~$\Omega$}
+\label{fig:3}
+\end{figure}
+
+Nous avons observé un décalage temporel nul pour le canal 1 par rapport au canal 2, d'où nous déduisons un déphasage nul, en correspondance avec les attentes théoriques.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{oscilloscope-resistor.jpg}
+\caption{Sortie de l'oscilloscope montrant un déphasage nul pour le circuit avec résistance}
+\label{fig:oscilloscope-resistor}
+\end{figure}
+
+\subsection{1.2 : Étude du déphasage causé par une seule inductance}
+
+\subsubsection{1.2.1 : Détermination expérimentale}
+
+Dans cette partie, nous utilisons une résistance auxiliaire de \SI{100}{\Omega} avec une inductance de \SI{1}{H} (Figure~\ref{fig:4}).
+
+\begin{figure}[h]
+\centering
+\begin{circuitikz}
+	\draw
+	(0,0) to[sV, l=$100\,\mathrm{Hz}$] (0,3)
+				to[R=$100\,\Omega$] (3,3)
+				to[L=$1\,\mathrm{H}$] (3,0)
+				-- (0,0);
+
+% Oscilloscope connections
+\draw[-latex] (0,3) -- ++(0,0.5) node[above] {Ch1};
+\draw[-latex] (3,3) -- ++(0,0.5) node[above] {Ch2};
+
+\end{circuitikz}
+\caption{Circuit avec source sinusoïdale, résistance auxiliaire et inductance de 1~H}
+\label{fig:4}
+\end{figure}
+
+Nous observons un décalage temporel positif de $\Delta t=\SI{2.5}{ms}$ pour le canal~1 par rapport au canal~2, d'où nous déduisons un déphasage positif
+\[\Delta\phi=\frac{2\pi\,\Delta t}{T}=\frac{\pi}{2},\]
+en correspondance avec les attentes théoriques pour une inductance idéale à cette fréquence.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{oscilloscope-inductor.jpg}
+\caption{Sortie de l'oscilloscope montrant un déphasage positif pour le circuit avec inductance}
+\label{fig:oscilloscope-inductor}
+\end{figure}
+
+\subsubsection{1.2.2 : Considération des variables non pertinentes}
+
+Nous sommes conscients que la résistance de la résistance auxiliaire et la fréquence de la source de tension alternative peuvent avoir un impact sur nos résultats. Nous les avons donc variées pour étudier l'effet.
+
+Avec $f=\SI{100}{Hz}$:
+\begin{center}
+\begin{tabular}{c|c|c|c}
+ $R_{\mathrm{aux}}$ (\si{\Omega}) & 100 & 500 & 1000 \\
+ \hline
+ Décalage temporel expérimental (\si{ms}) & 2.25 & 1.5 & 1 \\
+ Déphasage déduit & $\tfrac{\pi}{2}$ & $\tfrac{3\pi}{10}$ & $\tfrac{\pi}{5}$ \\
+\end{tabular}
+\end{center}
+
+Lorsque la valeur de $R_{\mathrm{aux}}$ augmente, le déphasage mesuré diminue. De cela nous pouvons conclure qu'une résistance supplémentaire en série modifiera le comportement du circuit. Il est donc dans l'intérêt de la précision expérimentale de prendre une petite $R_{\mathrm{aux}}$.
+
+Avec $R_{\mathrm{aux}}=\SI{1000}{\Omega}$, en variant la fréquence :
+\begin{center}
+\begin{tabular}{c|c|c|c}
+ $f$ (\si{Hz}) & 100 & 75 & 10 \\
+ \hline
+ $\Delta t$ (\si{ms}) & 2.25 & 3.75 & 10 \\
+ Déphasage déduit & $0.5\,\pi$ & $0.56\,\pi$ & $0.1\,\pi$ \\
+\end{tabular}
+\end{center}
+
+Lorsque la valeur de $f$ augmente, le déphasage mesuré varie, ce qui contredit l'attente théorique simple. Nous concluons donc que la fréquence aura un impact sur la précision de notre mesure. Il est donc préférable de prendre une $f$ raisonnablement grande, telle que \SI{100}{Hz}, pour la précision expérimentale.
+
+\subsection{1.3 : Étude du déphasage causé par un seul condensateur}
+
+\subsubsection{1.3.1 : Détermination expérimentale}
+
+Dans cette partie, nous utilisons une résistance auxiliaire de \SI{100}{\Omega} avec un condensateur de \SI{1}{\mu F} (Figure~\ref{fig:5}).
+
+\begin{figure}[h]
+\centering
+\begin{circuitikz}
+	\draw
+	(0,0) to[sV, l=$100\,\mathrm{Hz}$] (0,3)
+				to[R=$100\,\Omega$] (3,3)
+				to[C=$1\,\mu\mathrm{F}$] (3,0)
+				-- (0,0);
+
+% Oscilloscope connections
+\draw[-latex] (0,3) -- ++(0,0.5) node[above] {Ch1};
+\draw[-latex] (3,3) -- ++(0,0.5) node[above] {Ch2};
+
+\end{circuitikz}
+\caption{Circuit avec source sinusoïdale, résistance auxiliaire et condensateur de 1~$\mu$F}
+\label{fig:5}
+\end{figure}
+
+Nous observons un déphasage négatif pour le condensateur. Expérimentalement, un décalage temporel de $\Delta t=\SI{1.5}{ms}$ (signe dépendant de la référence du canal) correspond à une amplitude de déphasage de $\tfrac{3\pi}{10}$, en correspondance partielle avec les attentes théoriques pour un condensateur idéal à cette fréquence. La différence entre l'observation expérimentale et les attentes théoriques peut être expliquée par des imprécisions expérimentales et des imperfections dans les équipements utilisés, telles qu'une résistance importante dans le circuit.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{oscilloscope-capacitor.jpg}
+\caption{Sortie de l'oscilloscope montrant un déphasage négatif pour le circuit avec condensateur}
+\label{fig:oscilloscope-capacitor}
+\end{figure}
+
+
+\subsubsection{1.3.2 : Considération des variables non pertinentes}
+
+Similaire à la section~1.2.2, nous considérons les variables non pertinentes $R_{\mathrm{aux}}$ et $f$ :
+
+Avec $f=\SI{100}{Hz}$:
+\begin{center}
+\begin{tabular}{c|c|c|c}
+ $R_{\mathrm{aux}}$ (\si{\Omega}) & 100 & 500 & 1000 \\
+ \hline
+ Décalage temporel expérimental (\si{ms}) & -2.5 & -2.2 & -1.6 \\
+ Déphasage déduit & $-\tfrac{\pi}{2}$ & $-0.44\,\pi$ & $-0.32\,\pi$ \\
+\end{tabular}
+\end{center}
+
+Lorsque la valeur de $R_{\mathrm{aux}}$ augmente, l'amplitude du déphasage mesuré diminue. Il est donc préférable de prendre une petite $R_{\mathrm{aux}}$ pour une meilleure précision.
+
+Avec $R_{\mathrm{aux}}=\SI{1000}{\Omega}$, en variant la fréquence :
+\begin{center}
+\begin{tabular}{c|c|c|c}
+ $f$ (\si{Hz}) & 100 & 75 & 10 \\
+ \hline
+ $\Delta t$ (\si{ms}) & 2.25 & 3.75 & 10 \\
+ Déphasage déduit & $0.5\,\pi$ & $0.56\,\pi$ & $0.1\,\pi$ \\
+\end{tabular}
+\end{center}
+
+Encore une fois, la fréquence impacte le déphasage mesuré ; choisissez une fréquence suffisamment grande et stable pour les mesures (par exemple \SI{100}{Hz}).
+
+\section{Partie 2 : étude d'un circuit RLC en série sous tension sinusoïdale}
+
+\subsection{2.1 Montage expérimental}
+
+Dans cette partie, nous connectons une source de tension sinusoïdale d'une fréquence de \SI{100}{Hz} avec une résistance de \SI{20}{\Omega}, une inductance de \SI{0.2}{H} et un condensateur de \SI{3}{\mu F} en série. Le canal~1 de l'oscilloscope est connecté à la résistance, et le canal~2 à la source de tension (Figure~\ref{fig:6}).
+
+\begin{figure}[h]
+\centering
+\begin{circuitikz}
+	% Series RLC circuit
+	\draw
+	(0,0) to[sV, l=$100\,\mathrm{Hz}$] (0,3)
+				to[R=$20\,\Omega$] (3,3)
+				to[L=$0.2\,\mathrm{H}$] (6,3)
+				to[C=$3\,\mu\mathrm{F}$] (9,3)
+				-- (9,0) -- (0,0);
+
+	% Oscilloscope connections
+	\draw[-latex] (3,3) -- ++(0,0.5) node[above] {Ch1}; % Channel 1 to resistor
+	\draw[-latex] (0,3) -- ++(0,0.5) node[above] {Ch2}; % Channel 2 to voltage source
+\end{circuitikz}
+\caption{Circuit RLC en série avec source sinusoïdale, résistance, inductance, condensateur et connexions de l'oscilloscope}
+\label{fig:6}
+\end{figure}
+
+\subsection{2.2 Observations}
+
+\paragraph{Tensions efficaces}
+De l'oscilloscope nous lisons les tensions efficaces $U$ de \SI{21}{V} de la source de tension, et $U_{R}$ de \SI{7.39}{V}. La période est \SI{10}{ms}, la fréquence est \SI{100}{Hz}, ce qui se traduit par une fréquence angulaire de $\omega=2\pi f=200\pi\,\mathrm{rad\,s^{-1}}$.
+
+\paragraph{Déphasage}
+Nous observons un décalage temporel positif du canal~1 par rapport au canal~2 de $\Delta t=\SI{2.25}{ms}$, d'où nous déduisons un déphasage
+\[\Delta\phi = \frac{2\pi\,\Delta t}{T} \approx 0.45\,\pi.\]
+
+\paragraph{Modélisation}
+Si nous modélisons $U(t)=U_{m}\cos(\omega t)$, puisque $I_{m}=\dfrac{U_{Rm}}{R}$, donc
+\[I(t)=I_{m}\cos(\omega t-\tfrac{\pi}{2})=I_{m}\sin(\omega t)=\frac{U_{Rm}}{R}\sin(\omega t).\]
+
+De $U_{R}$, nous utilisons la loi d'Ohm $I=\dfrac{U_{R}}{R}$ pour calculer le courant efficace
+\[I_{\mathrm{eff}}=\frac{7.39}{20}=0.3695\:\mathrm{A}\approx\SI{369.5}{mA}.\]
+
+\paragraph{Remarques}
+Avec un déphasage $\Delta\phi\approx 0.45\,\pi$, ce circuit se comporte de manière similaire à un circuit principalement inductif, malgré la présence d'une résistance et d'un condensateur.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{oscilloscope-RLC.jpg}
+\caption{Sortie de l'oscilloscope pour le circuit RLC en série}
+\label{fig:oscilloscope-rlc}
+\end{figure}
+
+\section*{Conclusion}
+
+Dans cette expérience, nous avons pu vérifier partiellement expérimentalement les déphasages produits par une inductance et un condensateur dans un circuit CA (approximativement $+\tfrac{\pi}{2}$ et $-\tfrac{\pi}{2}$ respectivement pour des composants idéaux). Nous avons également étudié un circuit RLC en série pour observer l'effet combiné de plusieurs composants ; les contributions de phase se combinent et le déphasage résultant dépend des magnitudes relatives des impédances plutôt que d'une simple somme arithmétique.
+
+\end{document}
+
