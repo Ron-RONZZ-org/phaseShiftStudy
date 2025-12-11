@@ -1,0 +1,12 @@
+\documentclass{article}
+\usepackage{circuitikz}
+\usepackage{siunitx}
+\begin{document}
+\begin{circuitikz}
+\draw
+(0,0) to[sV, v=$100\,\mathrm{Hz}$] (0,3)
+to[R=$10\,\Omega$] (3,3)
+to[european resistor, l_=Component] (3,0)
+-- (0,0);
+\end{circuitikz}
+\end{document}
