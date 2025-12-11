@@ -8,6 +8,7 @@
 \usepackage{amsmath}
 \usepackage{siunitx}
 \usepackage{circuitikz}
+\usetikzlibrary{babel}
 
 \title{Study on the experimental behaviour of a linear resistor, capacitor, and inductor alternative-current circuit}
 \subtitle{Travaux pratiques génie électricité GIM 1 R1.04}
@@ -36,7 +37,7 @@ In this part, we connect our component of interest with a sinusoidal voltage sou
 	\draw
 	(0,0) to[sV, l=$100\,\mathrm{Hz}$] (0,3)
 				to[R=$10\,\Omega$] (3,3)
-				to[generic, l=Component] (3,0)
+				to[european resistor, l_=Component] (3,0)
 				-- (0,0);
 \end{circuitikz}
 \caption{Connection of the component with a sinusoidal voltage source and auxiliary resistor}
@@ -49,7 +50,7 @@ In this part, we connect our component of interest with a sinusoidal voltage sou
 	\draw
 	(0,0) to[sV, l=$100\,\mathrm{Hz}$] (0,3)
 				to[R=$10\,\Omega$] (3,3)
-				to[generic, l=Component] (3,0)
+				to[european resistor, l_=Component] (3,0)
 				-- (0,0);
 
 	% Oscilloscope connections
@@ -90,6 +91,13 @@ In this part, we use an auxiliary resistor of \SI{10}{\Omega} and the tested res
 
 We observed zero temporal shift for channel 1 with regard to channel 2, from which we deduce zero phase shift, in correspondence with theoretical expectations.
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{oscilloscope-resistor.jpg}
+\caption{Oscilloscope output showing zero phase shift for the resistor circuit}
+\label{fig:oscilloscope-resistor}
+\end{figure}
+
 \subsection{1.2 : Study of phase shift caused by a single inductor}
 
 \subsubsection{1.2.1 : Experimental determination}
@@ -117,6 +125,13 @@ In this part, we use an auxiliary resistor of \SI{100}{\Omega} with an inductor 
 We observe a positive temporal shift of $\Delta t=\SI{2.5}{ms}$ for channel~1 with regard to channel~2, from which we deduce a positive phase shift
 \[\Delta\phi=\frac{2\pi\,\Delta t}{T}=\frac{\pi}{2},\]
 in correspondence with theoretical expectations for an ideal inductor at that frequency.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{oscilloscope-inductor.jpg}
+\caption{Oscilloscope output showing positive phase shift for the inductor circuit}
+\label{fig:oscilloscope-inductor}
+\end{figure}
 
 \subsubsection{1.2.2 : Consideration of irrelevant variables}
 
@@ -171,6 +186,13 @@ In this part, we use an auxiliary resistor of \SI{100}{\Omega} with a capacitor 
 \end{figure}
 
 We observe a negative phase shift for the capacitor. Experimentally, a temporal shift of $\Delta t=\SI{1.5}{ms}$ (sign depending on channel reference) corresponds to a phase shift magnitude of $\tfrac{3\pi}{10}$, in partial correspondence with theoretical expectations for an ideal capacitor at that frequency. The difference in experimental observation and theoretical expectations may be explained by experimental imprecisions and imperfections in equipments used, such as an important resistance in the circuit.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{oscilloscope-capacitor.jpg}
+\caption{Oscilloscope output showing negative phase shift for the capacitor circuit}
+\label{fig:oscilloscope-capacitor}
+\end{figure}
 
 
 \subsubsection{1.3.2 : Consideration of irrelevant variables}
@@ -244,6 +266,13 @@ From $U_{R}$, we use Ohm's law $I=\dfrac{U_{R}}{R}$ to calculate the effective c
 
 \paragraph{Remarks}
 With a phase shift $\Delta\phi\approx 0.45\,\pi$, this circuit behaves similarly to a predominantly inductive circuit, despite the presence of a resistor and a capacitor.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{oscilloscope-RLC.jpg}
+\caption{Oscilloscope output for the series RLC circuit}
+\label{fig:oscilloscope-rlc}
+\end{figure}
 
 \section*{Conclusion}
 
