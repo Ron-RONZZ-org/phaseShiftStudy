@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{scrreprt}
+\documentclass[a4paper,11pt]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
@@ -31,7 +31,7 @@ Dans cette expérience, nous visons à étudier le comportement d'un circuit à 
 
 Dans cette partie, nous connectons notre composant d'intérêt à une source de tension sinusoïdale d'une fréquence de \SI{100}{Hz} avec une résistance auxiliaire, comme montré dans la Figure~\ref{fig:1}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \begin{circuitikz}
 	\draw
@@ -44,7 +44,7 @@ Dans cette partie, nous connectons notre composant d'intérêt à une source de 
 \label{fig:1}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \begin{circuitikz}
 	\draw
@@ -71,7 +71,7 @@ où $T$ est la période de la source de tension alternative.
 
 Dans cette partie, nous utilisons une résistance auxiliaire de \SI{10}{\Omega} et la résistance testée de \SI{100}{\Omega} (Figure~\ref{fig:3}).
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \begin{circuitikz}
 	\draw
@@ -91,7 +91,7 @@ Dans cette partie, nous utilisons une résistance auxiliaire de \SI{10}{\Omega} 
 
 Nous avons observé un décalage temporel nul pour le canal 1 par rapport au canal 2, d'où nous déduisons un déphasage nul, en correspondance avec les attentes théoriques.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{oscilloscope-resistor.jpg}
 \caption{Sortie de l'oscilloscope montrant un déphasage nul pour le circuit avec résistance}
@@ -104,7 +104,7 @@ Nous avons observé un décalage temporel nul pour le canal 1 par rapport au can
 
 Dans cette partie, nous utilisons une résistance auxiliaire de \SI{100}{\Omega} avec une inductance de \SI{1}{H} (Figure~\ref{fig:4}).
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \begin{circuitikz}
 	\draw
@@ -126,7 +126,7 @@ Nous observons un décalage temporel positif de $\Delta t=\SI{2.5}{ms}$ pour le 
 \[\Delta\phi=\frac{2\pi\,\Delta t}{T}=\frac{\pi}{2},\]
 en correspondance avec les attentes théoriques pour une inductance idéale à cette fréquence.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{oscilloscope-inductor.jpg}
 \caption{Sortie de l'oscilloscope montrant un déphasage positif pour le circuit avec inductance}
@@ -167,7 +167,7 @@ Lorsque la valeur de $f$ augmente, le déphasage mesuré varie, ce qui contredit
 
 Dans cette partie, nous utilisons une résistance auxiliaire de \SI{100}{\Omega} avec un condensateur de \SI{1}{\mu F} (Figure~\ref{fig:5}).
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \begin{circuitikz}
 	\draw
@@ -187,7 +187,7 @@ Dans cette partie, nous utilisons une résistance auxiliaire de \SI{100}{\Omega}
 
 Nous observons un déphasage négatif pour le condensateur. Expérimentalement, un décalage temporel de $\Delta t=\SI{1.5}{ms}$ (signe dépendant de la référence du canal) correspond à une amplitude de déphasage de $\tfrac{3\pi}{10}$, en correspondance partielle avec les attentes théoriques pour un condensateur idéal à cette fréquence. La différence entre l'observation expérimentale et les attentes théoriques peut être expliquée par des imprécisions expérimentales et des imperfections dans les équipements utilisés, telles qu'une résistance importante dans le circuit.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{oscilloscope-capacitor.jpg}
 \caption{Sortie de l'oscilloscope montrant un déphasage négatif pour le circuit avec condensateur}
@@ -229,7 +229,7 @@ Encore une fois, la fréquence impacte le déphasage mesuré ; choisissez une fr
 
 Dans cette partie, nous connectons une source de tension sinusoïdale d'une fréquence de \SI{100}{Hz} avec une résistance de \SI{20}{\Omega}, une inductance de \SI{0.2}{H} et un condensateur de \SI{3}{\mu F} en série. Le canal~1 de l'oscilloscope est connecté à la résistance, et le canal~2 à la source de tension (Figure~\ref{fig:6}).
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \begin{circuitikz}
 	% Series RLC circuit
@@ -267,7 +267,7 @@ De $U_{R}$, nous utilisons la loi d'Ohm $I=\dfrac{U_{R}}{R}$ pour calculer le co
 \paragraph{Remarques}
 Avec un déphasage $\Delta\phi\approx 0.45\,\pi$, ce circuit se comporte de manière similaire à un circuit principalement inductif, malgré la présence d'une résistance et d'un condensateur.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{oscilloscope-RLC.jpg}
 \caption{Sortie de l'oscilloscope pour le circuit RLC en série}

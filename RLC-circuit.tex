@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{scrreprt}
+\documentclass[a4paper,11pt]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
@@ -31,7 +31,7 @@ In this experiment, we aim to study the behaviour of a linear alternating-curren
 
 In this part, we connect our component of interest with a sinusoidal voltage source of a frequency of \SI{100}{Hz} with an auxiliary resistor, as shown in Figure~\ref{fig:1}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \begin{circuitikz}
 	\draw
@@ -44,7 +44,7 @@ In this part, we connect our component of interest with a sinusoidal voltage sou
 \label{fig:1}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \begin{circuitikz}
 	\draw
@@ -71,7 +71,7 @@ where $T$ is the period of the alternating voltage source.
 
 In this part, we use an auxiliary resistor of \SI{10}{\Omega} and the tested resistor of \SI{100}{\Omega} (Figure~\ref{fig:3}).
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \begin{circuitikz}
 	\draw
@@ -91,7 +91,7 @@ In this part, we use an auxiliary resistor of \SI{10}{\Omega} and the tested res
 
 We observed zero temporal shift for channel 1 with regard to channel 2, from which we deduce zero phase shift, in correspondence with theoretical expectations.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{oscilloscope-resistor.jpg}
 \caption{Oscilloscope output showing zero phase shift for the resistor circuit}
@@ -104,7 +104,7 @@ We observed zero temporal shift for channel 1 with regard to channel 2, from whi
 
 In this part, we use an auxiliary resistor of \SI{100}{\Omega} with an inductor of \SI{1}{H} (Figure~\ref{fig:4}).
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \begin{circuitikz}
 	\draw
@@ -126,7 +126,7 @@ We observe a positive temporal shift of $\Delta t=\SI{2.5}{ms}$ for channel~1 wi
 \[\Delta\phi=\frac{2\pi\,\Delta t}{T}=\frac{\pi}{2},\]
 in correspondence with theoretical expectations for an ideal inductor at that frequency.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{oscilloscope-inductor.jpg}
 \caption{Oscilloscope output showing positive phase shift for the inductor circuit}
@@ -167,7 +167,7 @@ As the value of $f$ increases, the measured phase shift varies, which contradict
 
 In this part, we use an auxiliary resistor of \SI{100}{\Omega} with a capacitor of \SI{1}{\mu F} (Figure~\ref{fig:5}).
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \begin{circuitikz}
 	\draw
@@ -187,7 +187,7 @@ In this part, we use an auxiliary resistor of \SI{100}{\Omega} with a capacitor 
 
 We observe a negative phase shift for the capacitor. Experimentally, a temporal shift of $\Delta t=\SI{1.5}{ms}$ (sign depending on channel reference) corresponds to a phase shift magnitude of $\tfrac{3\pi}{10}$, in partial correspondence with theoretical expectations for an ideal capacitor at that frequency. The difference in experimental observation and theoretical expectations may be explained by experimental imprecisions and imperfections in equipments used, such as an important resistance in the circuit.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{oscilloscope-capacitor.jpg}
 \caption{Oscilloscope output showing negative phase shift for the capacitor circuit}
@@ -229,7 +229,7 @@ Again, frequency impacts the measured phase shift; choose a sufficiently large a
 
 In this part, we connect a sinusoidal voltage source of a frequency of \SI{100}{Hz} with a resistor of \SI{20}{\Omega}, an inductor of \SI{0.2}{H} and a capacitor of \SI{3}{\mu F} in series. Channel~1 of the oscilloscope is connected to the resistor, and channel~2 to the voltage source (Figure~\ref{fig:6}).
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \begin{circuitikz}
 	% Series RLC circuit
@@ -267,7 +267,7 @@ From $U_{R}$, we use Ohm's law $I=\dfrac{U_{R}}{R}$ to calculate the effective c
 \paragraph{Remarks}
 With a phase shift $\Delta\phi\approx 0.45\,\pi$, this circuit behaves similarly to a predominantly inductive circuit, despite the presence of a resistor and a capacitor.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{oscilloscope-RLC.jpg}
 \caption{Oscilloscope output for the series RLC circuit}
